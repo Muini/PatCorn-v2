@@ -19,7 +19,6 @@
 		<header>
 			<div id="branding">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ) ?>" rel="home">
-				<img id="patcorn_logo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo_patcorn.svg" alt="Logo de ouf de PatCorn"/>
 				<div id="site-title">
 					<h1>PatCorn</h1>
 					<p id="site-description">Pas de Chat, Pas de Porn</p>
@@ -28,15 +27,16 @@
 			</div>
 			
 			<nav>
-				<div id="search">
-						<?php get_search_form(); ?>
-				</div>
 				<ul class="head_social">
-					<li><a href="http://twitter.com/patcorn_fr" title="Twitter PatCorn" target="_blank" >t</a></li>
-					<li><a href="https://www.facebook.com/patcorn.fr" title="Facebook PatCorn" target="_blank" >f</a></li>
+					<li><a id="btn_twitter" href="http://twitter.com/patcorn_fr" title="Twitter PatCorn" target="_blank" >t</a></li>
+					<li><a id="btn_fb" href="https://www.facebook.com/patcorn.fr" title="Facebook PatCorn" target="_blank" >f</a></li>
 					<!--<li><a href title>Donation bitches</a></li>-->
-					<li><a href="http://corentinflach.fr/" title="Portfolio Corentin Flach" target="_blank" >></a></li>
+					<li><a id="btn_folio" href="http://corentinflach.fr/" title="Portfolio Corentin Flach" target="_blank" >></a></li>
 				</ul>
+				<div id="search">
+					<a title="search">s</a>
+					<?php get_search_form(); ?>
+				</div>
 				<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 			</nav>
 		</header>

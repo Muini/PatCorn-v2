@@ -26,7 +26,6 @@
 			</footer>
 			
 		</div>
-		
 		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/patcorn.js"></script>
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

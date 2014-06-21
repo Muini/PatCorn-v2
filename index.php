@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<p id="description_site">" PatCorn référence les vidéos du net de qualité spécialement pour vous ! "</p>
 <div id="content">
 	<?php while ( have_posts() ) : the_post() ?>
 	<?php get_template_part( 'entry' ); ?>
