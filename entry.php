@@ -1,6 +1,6 @@
 <?php
 	//Récuperer tout les champs
-	$fields = get_fields();
+	//$fields = get_fields();
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php if ( !is_singular() ): ?>
@@ -12,9 +12,26 @@
 				if ( has_post_thumbnail() ) {
 					the_post_thumbnail('large');
 				}
-				//Ajouter ici l'icône du type de contenu (vidéo, article etc...)
 				?>
 		</a>
+		<?php
+		$post_type = get_post_type();
+		switch ($post_type) {
+			case 'post':
+				//echo '<img class="type_icon" src="" alt="Type vidéo" />';
+				echo '<span class="type_icon icon-film"></span>';
+				break;
+			case 'articles':
+				echo '<span class="type_icon icon-quill"></span>';
+				break;
+			case 'fiche-id':
+				echo '<span class="type_icon icon-user4"></span>';
+				break;			
+			default:
+				# Do nothing, unknown post type
+				break;
+		}
+		?>
 	<?php endif; ?>
 
 	<section class="article-content">
@@ -39,8 +56,8 @@
 			<!--</section>-->
 			<footer>
 				<?php
-				get_template_part( 'entry', 'meta' );
 				get_template_part( 'entry-footer' ); 
+				get_template_part( 'entry', 'meta' );
 				?> 
 			</footer>
 		

@@ -4,7 +4,8 @@
 			<footer>
 				<section class="col3">
 					<h4>Stats</h3>
-					<p><strong><?php echo wp_count_posts('post')->publish; ?></strong> Vidéos exceptionnelles actuellement sur le domaine PatCorn.</p>
+					<p><strong><?php echo wp_count_posts('post')->publish; ?></strong> Vidéos exceptionnelles actuellement sur le domaine PatCorn et</p>
+					<p><strong><?php echo wp_count_posts('articles')->publish; ?></strong> Articles super pertinant.</p>
 				</section>
 				<section class="col3">
 					<h4>Attention</h3>
@@ -26,6 +27,7 @@
 			</footer>
 			
 		</div>
+		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/heeere.js"></script>
 		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/patcorn.js"></script>
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

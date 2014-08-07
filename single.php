@@ -110,7 +110,7 @@ if( $fields )
 <h3>Articles Similaires</h3>
 <?php //display_related_posts_via_categories() ?>
 <ul class="article_similaire dpe-flexible-posts">
-  <?php do_action(
+  <?php /* do_action(
     'related_posts_by_category',
     array(
       'orderby' => 'RAND',
@@ -126,7 +126,7 @@ if( $fields )
       'image' => array(50, 50),
       'message' => 'Aucun post similaire.'
     )
-  ) ?>
+  ) */?>
 </ul>
 <?php get_template_part( 'nav', 'below-single' ); ?>
 <?php comments_template('', true); ?>

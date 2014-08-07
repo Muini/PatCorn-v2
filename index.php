@@ -1,6 +1,11 @@
 <?php get_header(); ?>
-<p id="description_site">" PatCorn référence les vidéos du net de qualité spécialement pour vous ! "</p>
+<blockquote id="description_site"><strong>PatCorn</strong> référence les <strong>vidéos du net de qualité</strong> spécialement pour <strong>vous</strong> !</blockquote>
 <div id="content">
+	<?php 
+		//query_posts( array( 'post_type' => array( 'post', 'articles', 'fiche-id' ) ) );
+		global $wp_query;
+		$wp_query->set('post_type', array( 'post', 'articles', 'fiche-id' ) );
+	?>
 	<?php while ( have_posts() ) : the_post() ?>
 	<?php get_template_part( 'entry' ); ?>
 	<?php comments_template(); ?>
@@ -20,5 +25,5 @@
 	</div>
 	<?php wp_simple_pagination(); ?>
 </div>
-<?php //get_sidebar(); //No side bar ?>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

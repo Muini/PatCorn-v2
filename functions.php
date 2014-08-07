@@ -7,6 +7,16 @@ if( !is_admin() ){
 	wp_register_script('jquery', ("http://code.jquery.com/jquery-latest.min.js"), false, '');
 	wp_enqueue_script('jquery');
 }
+/*
+* Custom Loop
+*/
+function custom_loop( $query ) {
+    if ( $query->is_home() && $query->is_main_query() ) {
+        $query->set( 'post_type', array( 'post', 'articles', 'fiche-id' ) );
+    }
+}
+add_action( 'pre_get_posts', 'custom_loop' );
+
 function revcon_change_post_label() {
     global $menu;
     global $submenu;
@@ -34,7 +44,7 @@ function revcon_change_post_object() {
     $labels->name_admin_bar = 'Vidéos';
 }
 //Editeur visuel du contenu
-add_filter('user_can_richedit' , create_function('' , 'return true;') , 50);
+//add_filter('user_can_richedit' , create_function('' , 'return true;') , 50);
 
 add_action( 'admin_menu', 'revcon_change_post_label' );
 add_action( 'init', 'revcon_change_post_object' );

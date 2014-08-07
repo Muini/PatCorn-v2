@@ -6,10 +6,31 @@ Based on Jquery
 */
 $('#loader').fadeOut('fast');
 
-//$(document).ready(initialiser);
 
-//function initialiser() {
+heeere.bind({
+  elems: '.hentry',
+  viewportFactor: .15,
+  smooth: true,
+  smoothSpeed: 250,
+  smoothLimit: 3
+});
+
+console.log("coucou !");
+$(document).ready(initialiser);
+
+function initialiser() {
 	
+	window.onresize = function(){
+		setTimeout(function(){
+			heeere.bind({
+			  elems: '.hentry',
+			  viewportFactor: .15,
+			  smooth: true,
+			  smoothSpeed: 250,
+			  smoothLimit: 3
+			});
+		},300);
+	};
 	//Lien des Articles
 	/*if ( $('body').hasClass('home') || $('body').hasClass('search') || $('body').hasClass('category') || $('body').hasClass('archive') )
 	{
@@ -59,7 +80,7 @@ $('#loader').fadeOut('fast');
 			}
 		);
 	}
-	*/
+*/
 	//Menu Déroulant
 	$('#menu-item-186').on('click', function (e) {
 		//alert("prout");
@@ -68,16 +89,25 @@ $('#loader').fadeOut('fast');
 		$(this).data('toggled', !toggled);
 		if (!toggled) {
 			if(($(window).width())<=705){
-				$('#menu-menu>li>ul').height(580);
+				$('#menu-menu>li>ul').height(600);
 			}else if(($(window).width())<=1050){
-				$('#menu-menu>li>ul').height(430);
+				$('#menu-menu>li>ul').height(450);
 			}else{
-				$('#menu-menu>li>ul').height(380);
+				$('#menu-menu>li>ul').height(400);
 			}
 		}
 		else {
 			$('#menu-menu>li>ul').height(0);
 		}
+		setTimeout(function(){
+			heeere.bind({
+			  elems: '.hentry',
+			  viewportFactor: .15,
+			  smooth: true,
+			  smoothSpeed: 250,
+			  smoothLimit: 3
+			});
+		},300);
 	});
 
 	remplacerCatIco();
@@ -98,10 +128,11 @@ $('#loader').fadeOut('fast');
 	//$('.entry-footer .comments-link').hide();
 	
 	//Animations kikoo
+	/*
 	$('.type-post').each(function(i){
 		var it = $(this);
 		setTimeout(function(){it.addClass('animScaleOut');},50*i);
-	});
+	});*/
 	$('.single-post .entry-content p, .page .entry-content p,.equipe p').each(function(i){
 		console.log(i);
 		var it = $(this);
@@ -110,7 +141,7 @@ $('#loader').fadeOut('fast');
 	//Animation début
 	//$(window).load(function(){
 	//})}
-//}
+}
 function randomColor(){
 
 	var couleurs = ["#ffd142","#d9542b","#abb953","#507cb4"] // 4 couleurs, 4 saisons
