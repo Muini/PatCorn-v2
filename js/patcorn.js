@@ -2,10 +2,22 @@
 -------------------------------------------------------------------
 Javascript de Corentin FLACH pour PatCorn
 Based on Jquery
+
+	            |\___/|
+	            )     (
+	           =\     /=
+	             )===(
+	            /     \
+	            |     |
+	           /       \
+	           \       /
+	            \__  _/
+	              ( (
+	               ) )
+	              (_(
+
 -------------------------------------------------------------------
 */
-$('#loader').fadeOut('fast');
-
 
 heeere.bind({
   elems: '.hentry',
@@ -15,8 +27,9 @@ heeere.bind({
   smoothLimit: 3
 });
 
-console.log("coucou !");
 $(document).ready(initialiser);
+
+console.log("Coucou !");
 
 function initialiser() {
 	
@@ -110,10 +123,17 @@ function initialiser() {
 		},500);
 	});
 
+	//CatIco everywhere
 	remplacerCatIco();
 	ajouterMenuIco($('#menu-menu>li>.sub-menu>li>.sub-menu>li>a'));
 	ajouterMenuIco($('.entry-title>strong'));
 	
+	//Random Description
+	randomDescription();
+
+	//Random Footer
+	randomFooter();
+
 	//randomColor();
 	
 	//Suppr 'Comments'
@@ -143,10 +163,67 @@ function initialiser() {
 	//Animation début
 	//$(window).load(function(){
 	//})}
+
+	$('#loader').fadeOut('fast');
+}
+function randomDescription(){
+	var descriptions = [
+		"<strong>PatCorn</strong> référence les <strong>vidéos du net de qualité</strong> spécialement pour <strong>vous</strong> !",
+		"La <strong>bibliothèque vidéoludique</strong> qui n'attend plus que <strong>vous</strong>",
+		"La <strong>base de données des vidéos</strong> de <strong>qualité</strong> du net, prête à être consultée !",
+		"Le <strong>royaume des vidéastes</strong>",
+		"Des <strong>centaines de vidéos</strong> de tout genre qui veulent être <strong>regardées</strong> !"
+	];
+	
+	function getDesc(descriptions) {
+		return descriptions[Math.floor(Math.random() * descriptions.length)];
+	}
+	
+	var desc = getDesc(descriptions);
+
+	$('#description_site').html(desc);
+	
+}
+function randomFooter(){
+
+	var footers = $("#wrapper>footer>section");
+	var copyright = $("#copyright");
+
+	shuffle(footers);
+
+	var footer = "<section>"
+				+footers[0].innerHTML
+				+"</section><section>"
+				+footers[1].innerHTML
+				+"</section><section>"
+				+footers[2].innerHTML
+				+"</section><section>"
+				+footers[3].innerHTML
+				+"</section>";
+
+	$('#wrapper>footer').html(footer).append(copyright);
+}
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
 function randomColor(){
 
-	var couleurs = ["#ffd142","#d9542b","#abb953","#507cb4"] // 4 couleurs, 4 saisons
+	var couleurs = ["#ffd142","#d9542b","#abb953","#507cb4"]; // 4 couleurs, 4 saisons
 	
 	function getCouleur(couleurs) {
 		return couleurs[Math.floor(Math.random() * couleurs.length)];
@@ -357,6 +434,7 @@ function remplacerCatIco() {
 				break;
 		}
 		$(this).css('border-color',color);
+		$(this).attr('data-tip', $(this).html());
 		$(this).html(lettre);
 		if(realLetter){
 			//Ajout des style pour

@@ -2,10 +2,12 @@
 <article id="content-single">
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<header>
-			<h1 class="entry-title">
-				<?php the_title(); ?>
-			</h1>
-			<hr />
+			<div class="single-title">
+				<h1 class="entry-title">
+					<?php the_title(); ?>
+				</h1>
+				<hr />
+			</div>
 			<?php if(is_sticky()) //Si l'article est mis en avant
 				echo '<div class="enAvant-single"><p>Au Top !</p></div>'; ?>
 			<?php edit_post_link( __( 'Editer', 'blankslate' ), "<span class=\"edit-link\">", "</span>\n\t\t\t\t\t" ) ?>
@@ -25,7 +27,7 @@
 			$fields = get_fields();
 			if( $fields )
 			{
-				echo '<h3>Informations</h3>';
+				//echo '<h3>Informations</h3>';
 				echo '<div id="infos_bloc">';
 				foreach( $fields as $field_name => $value )
 				{
@@ -70,8 +72,8 @@
 							echo '<p><a href="'.$value.'" target="_blank">Lien vers la source</a></p>';
 							echo '</div>';
 						}else{
-							echo '<div class="equipe_encas">';
-							echo '<h5>'.$field['label'].'</h5>';
+							echo '<div class="equipe_encas">';		
+							echo '<span class="icon-user"></span><h5>'.$field['label'].'</h5>';
 							echo '<p>'.$value.'</p>';
 							echo '</div>';
 						}
