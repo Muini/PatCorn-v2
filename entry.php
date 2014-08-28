@@ -28,7 +28,7 @@
 				echo '<span class="type_icon icon-user4"></span>';
 				break;			
 			default:
-				# Do nothing, unknown post type
+				// Do nothing, unknown post type
 				break;
 		}
 		?>
@@ -49,10 +49,10 @@
 				<hr />
 			</header>
 			<!--<section>-->
-				<?php 
-				get_template_part('entry','content'); 
-				//the_field('note');
-				?>
+			<?php 
+			get_template_part('entry','content'); 
+			//the_field('note');
+			?>
 			<!--</section>-->
 			<footer>
 				<?php
@@ -60,9 +60,6 @@
 				get_template_part( 'entry', 'meta' );
 				?> 
 			</footer>
-		
-		<?php else: ?>
-			
 		
 		<?php endif; ?>
 

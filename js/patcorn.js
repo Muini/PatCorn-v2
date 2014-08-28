@@ -107,7 +107,7 @@ function initialiser() {
 			  smoothSpeed: 250,
 			  smoothLimit: 3
 			});
-		},300);
+		},500);
 	});
 
 	remplacerCatIco();
@@ -133,11 +133,13 @@ function initialiser() {
 		var it = $(this);
 		setTimeout(function(){it.addClass('animScaleOut');},50*i);
 	});*/
+	/*
 	$('.single-post .entry-content p, .page .entry-content p,.equipe p').each(function(i){
 		console.log(i);
 		var it = $(this);
 		setTimeout(function(){it.addClass('noMarginTop');},100*i);
 	});
+*/
 	//Animation début
 	//$(window).load(function(){
 	//})}
