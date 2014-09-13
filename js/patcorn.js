@@ -135,6 +135,25 @@ function initialiser() {
 	randomFooter();
 
 	//randomColor();
+
+	//Add Author search link
+	addAuthorLink();
+
+	//Up the comments if possible
+	/*
+	var aside_height = $('#content-single>aside').height();
+	var content_height = $('#content-single>.entry-content').height()
+	var diff = content_height - aside_height;
+	console.log(diff);
+	if( diff<0 )
+	{
+		$('#content-single>footer').css('margin-top',diff+'px');
+	}
+	*/
+
+	//Durée Form change
+	if($('.duree').length!=0)
+		$('.duree').html( $('.duree').html().replace('.','m ')+'s' );
 	
 	//Suppr 'Comments'
 	$('.comments-link>a').each(function(){
@@ -165,6 +184,22 @@ function initialiser() {
 	//})}
 
 	$('#loader').fadeOut('fast');
+}
+function addAuthorLink(){
+	//Fonction pour ajouter un lien <a> de recherche pour les auteurs.
+	var equipe = $('.search_author');
+	equipe.each(function() {
+		var auteur_linked = "";
+		var auteur = $(this).text().split("|");
+		console.log(auteur);
+		for(var i=0; i<auteur.length; i++)
+		{
+			auteur_linked += "<a href='http://patcorn.fr/?s="+auteur[i].replace(" ","+")+"' target='_blank'>"+auteur[i]+"</a>";
+			if((i+1)<auteur.length)
+				auteur_linked += " & "
+		}
+		$(this).html(auteur_linked);
+	});
 }
 function randomDescription(){
 	var descriptions = [
