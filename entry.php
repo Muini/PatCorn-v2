@@ -45,6 +45,7 @@
 						rel="bookmark" >
 						<?php the_title(); ?>
 					</a>
+					<?php edit_post_link( __( 'Editer', 'blankslate' ), "<span class=\"meta-sep\"> </span>\n\t\t\t\t\t\t<span class=\"edit-link\">", "</span>\n\t\t\t\t\t\n" ); ?>
 				</h2>
 				<hr />
 			</header>
