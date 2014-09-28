@@ -252,7 +252,7 @@ p{
 	text-shadow: 0em 0.06em 0 #f0f0f0;
 }
 blockquote{
-	quotes: "« " " »";
+	quotes: "“ " " ”";
 	text-shadow: 0em 0.06em 0 #f0f0f0;
 }
 blockquote::before {
@@ -596,7 +596,9 @@ input[type=submit]:hover{
 }
 #menu-menu>li>.sub-menu>li>.sub-menu{
 	/*padding-left: 12px;*/
-	margin-top:1px;
+	margin-right:5%;
+	margin-top: 1px;
+	border-bottom: 3px solid #c8c8c8;
 }
 #menu-menu>li>.sub-menu>li>.sub-menu>li>a{
 	display:block;
@@ -617,14 +619,14 @@ input[type=submit]:hover{
 .sub-menu>li{ 
 	display: block;
 	/*float: left;*/
-	width: 95%;
+	width: 100%;
 }
 .sub-menu>li>a{
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	padding: 3px 12px;
 	line-height: 1.8em;
-	background: rgba(0,0,0,0.02);
+	background: #f0f0f0;
 	font-size: 1.3rem;
 	color: #646464;
 	-webkit-transition:all 0.3s ease;
@@ -757,7 +759,7 @@ h1>a{
 	margin-bottom: 20px;
 	line-height: 3.4rem;
 	text-align:justify;
-	color: black;
+	color: #323232;
 	transition: margin-top 0.5s ease;
 	-ms-transition: margin-top 0.5s ease;
 	-moz-transition: margin-top 0.5s ease;
@@ -1227,7 +1229,7 @@ h2.entry-title>a, #content-single>header h1, #content-page header h1{
 	line-height: 2.6rem;
 }
 .single-post .entry-content p{
-	color:#646464;
+	color:#323232;
 	font-size: 1.7rem;
 	line-height: 3.2rem;
 	padding: 10px 5%;	
@@ -1239,7 +1241,7 @@ h2.entry-title>a, #content-single>header h1, #content-page header h1{
 	position: relative;
 }
 .single-post .entry-content blockquote p{
-	color:#969696;
+	color:#646464;
 }
 .single-post .entry-content blockquote:before{
 	font-size: 2.8rem;
