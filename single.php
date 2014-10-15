@@ -60,7 +60,8 @@
 				    $string = "<div class='equipe_encas hentry'>
 				    			<span class='$ico'></span>
 				    			<h5>$label</h5>
-				    			<p class='search_author'>$thing</p></div>
+				    			<p class='search_author'>$thing</p>
+				    			</div>
 				    ";
 				    return $string;
 				}

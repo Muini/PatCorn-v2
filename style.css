@@ -233,7 +233,7 @@ h2{
 	font-size: 3.6rem; 
 	/*line-height: 5.4rem;*/
 	color: #333; 
-	padding: 20px 0;	
+	padding: 30px 0;	
 }
 h3{	font-size:1.6rem; text-shadow: 0em 0.06em 0 #f0f0f0;	}
 h4{	font-size:1.4rem; text-shadow: 0em 0.06em 0 #f0f0f0;	}
@@ -731,7 +731,6 @@ h1>a{
 	padding-bottom: 2%;
 }
 .entry-title{
-	font-family: 'Raleway', sans-serif;
     font-size: 3rem;
 	color:#646464;
 	padding: 0 5%;
@@ -750,7 +749,7 @@ h1>a{
 	font-size: 2rem;
 	font-weight:100;
 }
-.page .entry-content p{
+.page .entry-content p, .article-content p{
 	box-sizing: border-box;
 	font-size: 1.8rem;
 	background-color: #fafafa;
@@ -765,17 +764,17 @@ h1>a{
 	-moz-transition: margin-top 0.5s ease;
 	-webkit-transition: margin-top 0.5s ease;
 }
-#content-single{
+#content-single,#article-single{
 	max-width: 1280px;
 	min-width: 320px;
 	margin:0 auto;
 }
-#content-single>aside{
+#content-single>aside,#article-single>aside{
 	width: 35%;
 	overflow: hidden;
 	position: relative;
 }
-#content-single>aside img{
+#content-single>aside img,#article-single>aside img{
 	opacity: 0.8;
 	filter: alpha(opacity=80);
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
@@ -788,7 +787,7 @@ h1>a{
 	right: 0;
 	background: #fafafa;
 	background: rgba(250,250,250,0.95);
-	color: #646464;
+	color: #969696;
 	padding: 10px 20px;
 	text-align: right;
 	font-size: 1.6rem;
@@ -801,13 +800,13 @@ h1>a{
 	-o-transition: left 0.3s ease;
 	transition: left 0.3s ease;
 }
-#content-single>aside .cat-links{
+#content-single>aside .cat-links,#article-single>aside .cat-links{
 	background: #fafafa;
 	width: 100%;
 	text-align: center;
 	padding: 10px 0;
 }
-#content-single>aside .cat-links a{
+#content-single>aside .cat-links a,#article-single>aside .cat-links a{
 	float: none;
 }
 .equipe{
@@ -855,7 +854,7 @@ h1>a{
 .search_author a:hover{
 	color:#729add;
 }
-#content-single>header{
+#content-single>header,#article-single>header{
 	width: 100%;
 	height: 30px;
 	margin-bottom: 30px;
@@ -865,7 +864,7 @@ h1>a{
 	float: left;
 	height: 30px;
 }
-#content-single>header .edit-link{
+#content-single>header .edit-link,#article-single>header .edit-link{
 	vertical-align: top;
 	float: right;
 	text-align: center;
@@ -889,7 +888,7 @@ a.post-edit-link:hover{
 	color: #fff;
 }
 
-#content-single>header hr, #content-page header hr{
+#content-single>header hr, #content-page header hr,#article-single>header hr{
 	width:20%;
 	color:#969696;
 	background: #969696;
@@ -897,7 +896,7 @@ a.post-edit-link:hover{
 	opacity: 0.7;
 	margin: 0.5% 0;
 }
-#content-single>footer{
+#content-single>footer,#article-single>footer{
 	width: 65%;
 	margin: 60px 0;
 	float: left;
@@ -1020,7 +1019,7 @@ a.post-edit-link:hover{
 	text-align:left;
 	float: left;
 }
-#content-page{
+#content-page, #content-article{
 	max-width: 960px;
 	margin: 0 auto;
 }
@@ -1100,6 +1099,11 @@ a.post-edit-link:hover{
 #content article:hover .article-content{
 	left:0;
 }
+.article-content{
+	float: left;
+	width: 65%;
+	position: relative;
+}
 #content article:hover img{
 	transform: scale(0.8);
     -ms-transform: scale(0.8);
@@ -1162,7 +1166,7 @@ iframe{
 
 	padding: 2% 6% 6% 6%;
 }
-h2.entry-title>a, #content-single>header h1, #content-page header h1{
+h2.entry-title>a, #content-single>header h1, #content-page header h1, #article-single header h1{
 	display: inline-block;
 	width: 100%;
 	color: #646464;
@@ -1227,6 +1231,8 @@ h2.entry-title>a, #content-single>header h1, #content-page header h1{
 	text-align:left;
 	font-size: 1.4rem;
 	line-height: 2.6rem;
+	padding: 0;
+	border: none;
 }
 .single-post .entry-content p{
 	color:#323232;
@@ -1437,6 +1443,23 @@ h2.entry-title>a, #content-single>header h1, #content-page header h1{
 	position:absolute;
 	top:0; left:0;
 }
+.article-content .la_video{
+	top: initial;
+	margin-top: 30px;
+	position: inherit;
+}
+.une_video{
+	width:100%;
+	height: 0;
+	padding-bottom:56.25%;
+	overflow:hidden;
+	margin-top: 30px;
+}
+.une_video iframe,.une_video embed,.une_video object{
+	width: 100% !important; height: 100% !important;
+	position:absolute;
+	top:0; left:0;
+}
 .single-post #content>h3{
 	margin-top:43px;
 }
@@ -1639,6 +1662,7 @@ aside{
 	font-size:1.4rem;
 	color:#888;
 	line-height: 2.1rem;
+	text-align: justify;
 }
 #wrapper>footer h4{
 	font-size: 2.4rem;
@@ -1657,11 +1681,13 @@ aside{
 	background: #729add;
 }
 #copyright{
-	text-align:center;
 	width:100%;
 	display:inline-block;
 	vertical-align:middle;
 	margin-top:60px;
+}
+#copyright>p{
+	text-align:center !important;
 }
 /*			AUTRES			*/
 mark{

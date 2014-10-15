@@ -12,7 +12,7 @@
 				<section>
 					<span class="icon-warning2"></span>
 					<h4>Attention</h3>
-					<p>Si tu cliques sur le lien en dessous, tu meurs.</p>
+					<p>Si tu cliques sur le lien ci-dessous, tu meurs.</p>
 					<a class="the_lien" href="/?random=1" target="_blank">The Lien</a>
 				</section>
 				<section>
