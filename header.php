@@ -13,7 +13,7 @@
 <body <?php body_class(); ?>>
 	<div id="loader">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ajax-loader.gif" alt="Loader"/>
-		<h2>Chargement de PatCorn...</h2>
+		<p>Chargement de PatCorn...</p>
 	</div>
 	
 	<div id="wrapper" class="hfeed">

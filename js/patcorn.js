@@ -53,47 +53,7 @@ function initialiser() {
 			window.location.href=link;
 		});
 	}*/
-	//Hover
-	/*
-	if( ($(window).width())>705 && ($('body').hasClass('home') || $('body').hasClass('search') || $('body').hasClass('category') || $('body').hasClass('archive')) )
-	{
-		$('.entry-date').css('margin-right','-60px');
-		$('.cat-links>a').css('margin-left','-80px');
-		$('.vcard>a').css('margin-left','-34px');
-		$('.entry-footer').css('margin-right','-200%');
-		
-		$('.article-content').hover(
-			function()
-			{
-				$(this).find('.entry-date').css('margin-right','6px');
-				$(this).find('.cat-links>a').css('margin-left','0');
-				$(this).find('.vcard>a').css('margin-left','0');
-				$(this).find('.entry-footer').css('margin-right','0');
-				/*$(this).siblings().css({
-					"filter": "grayscale(0)",
-					"-webkit-filter": "grayscale(0)",
-					"-moz-filter": "grayscale(0)",
-					"-o-filter": "grayscale(0)",
-					"-ms-filter": "grayscale(0)",
-				});
-			},
-			function()
-			{
-				$(this).find('.entry-date').css('margin-right','-60px');
-				$(this).find('.cat-links>a').css('margin-left','-80px');
-				$(this).find('.vcard>a').css('margin-left','-34px');
-				$(this).find('.entry-footer').css('margin-right','-200%');
-				/*$(this).siblings().css({
-					"filter": "grayscale(20%)",
-					"-webkit-filter": "grayscale(20%)",
-					"-moz-filter": "grayscale(20%)",
-					"-o-filter": "grayscale(20%)",
-					"-ms-filter": "grayscale(20%)",
-				});
-			}
-		);
-	}
-*/
+
 	//Menu Déroulant
 	$('#menu-item-186').on('click', function (e) {
 		//alert("prout");
@@ -183,7 +143,38 @@ function initialiser() {
 	//$(window).load(function(){
 	//})}
 
-	$('#loader').fadeOut('fast');
+	//Les animations
+	var loader = document.getElementById("loader");
+	var branding = document.getElementById("branding");
+	var menu = document.querySelectorAll("#menu-menu>li");
+	var sociaux = document.querySelectorAll("#search, .head_social>li");
+	// var search = document.getElementById("search");
+	var articles = document.querySelectorAll(".hentry");
+	var titles = document.querySelectorAll(".section_title");
+
+	var tl = new TimelineMax({onComplete:function(){console.log("Fini");}});
+
+	tl.to(loader, 0.4, {y:"-100%",ease:Power1.easeIn});
+
+	TweenMax.from(branding, 1.2, {y:"-100%",ease:Bounce.easeOut});
+
+	tl.staggerFrom(menu, 0.3, {y:"-100%",opacity:0}, 0.025);
+
+	TweenMax.staggerFrom(articles, 0.3, {opacity:0}, 0.075);
+
+	// tl.from(search, 0.3, {y:"-100%"});
+
+	tl.staggerFrom(sociaux, 0.3, {y:"-100%"}, 0.025);
+
+	tl.staggerFrom(titles, 0.3, {y:"100%",opacity:0}, 0.15);
+	 
+	// tl.pause();
+	// tl.play();
+	// tl.resume();
+	// tl.reverse();
+	// tl.play();
+
+	// TweenLite.from(branding, 0.5, {y:"-100%"});
 }
 function addAuthorLink(){
 	//Fonction pour ajouter un lien <a> de recherche pour les auteurs.
