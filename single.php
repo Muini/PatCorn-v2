@@ -25,23 +25,50 @@
 				if( get_field( $acfname ) )
 				{
 					$field = get_field_object( $acfname );
-					echo '<section class="episodes">';
-					echo '<h4 class="section_title">'.$field[label].'</h4>';
-					echo '<ul>';
-					$value = $field[value];
-					foreach ( $value as $post ) :
-						setup_postdata( $post ); ?> 
-						<li class="episode hentry">
-							<a target="_blank" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-							<?php the_post_thumbnail('thumbnail'); ?>
-							<p><?php the_title(); ?></p></a>
-						</li>
-					<?php
-					endforeach; 
-					wp_reset_postdata();
-					echo '</ul>';
-					echo '</section>';
+					if ( has_category( "episode" ) ){
+						echo '<section class="episodes">';
+						echo '<h4 class="section_title">'.$field[label].'</h4>';
+						$value = $field[value];
+						foreach ( $value as $post ) :
+							setup_postdata( $post ); ?> 
+							<div class="episode hentry">
+								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+								<?php the_post_thumbnail('thumbnail'); ?>
+								<?php 
+									if($acfname == "episode_suivant")
+										echo '<span class="icon-play3"></span>'
+								?>
+								<p><?php the_title(); ?></p></a>
+							</div>
+						<?php
+						endforeach; 
+						wp_reset_postdata();
+						echo '</section>';
+					}else{
+						echo '<section class="episodes">';
+						echo '<h4 class="section_title">'.$field[label].'</h4>';
+						echo '<ul>';
+						$value = $field[value];
+						foreach ( $value as $post ) :
+							setup_postdata( $post ); ?> 
+							<li class="episode hentry">
+								<a target="_blank" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+								<?php the_post_thumbnail('thumbnail'); ?>
+								<p><?php the_title(); ?></p></a>
+							</li>
+						<?php
+						endforeach; 
+						wp_reset_postdata();
+						echo '</ul>';
+						echo '</section>';
+					}
 				}
+			}
+			if ( has_category( "episode" ) ){
+				echo '<div id="footer_episode">';
+				drawEpisodes('nom_de_la_serie');
+				drawEpisodes('episode_suivant');
+				echo '</div>';
 			}
 			drawEpisodes('les_episodes');
 			drawEpisodes('saison_1');

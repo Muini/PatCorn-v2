@@ -37,22 +37,26 @@
 
 			<div class="equipe">
 			<?php
-				function drawSomething( $thing, $label, $ico )
+				function drawSomething( $acfname, $ico )
 				{
-				    $string = "<div class='equipe_encas hentry'>
-				    			<span class='$ico'></span>
-				    			<h5>$label</h5>
-				    			<p class='search_author'>$thing</p>
-				    			</div>
-				    ";
-				    return $string;
+					if( get_field($acfname) )
+					{
+						$field = get_field_object( $acfname );
+						$label = $field[label];
+						$thing = $field[value];
+					    $string = "<div class='equipe_encas hentry'>
+					    			<span class='$ico'></span>
+					    			<h5>$label</h5>
+					    			<p class='search_author'>$thing</p>
+					    			</div>
+					    ";
+					    echo $string;
+					}
 				}
 				//Ecrit par
-				if( get_field('ecrit_par') )
-					echo drawSomething( get_field_object('ecrit_par')[value], get_field_object('ecrit_par')[label], "icon-pen" );
+				drawSomething( "ecrit_par", "icon-pen" );
 				//Source
-				if( get_field('source') )
-					echo drawSomething( get_field_object('source')[value], get_field_object('source')[label], "icon-newspaper" );
+				drawSomething( "source", "icon-newspaper" );
 			?>
 			</div>
 		</aside>

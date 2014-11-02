@@ -143,6 +143,8 @@ function initialiser() {
 	//$(window).load(function(){
 	//})}
 
+	$("#loader").addClass("loader_up");
+
 	//Les animations
 	var loader = document.getElementById("loader");
 	var branding = document.getElementById("branding");
@@ -154,7 +156,7 @@ function initialiser() {
 
 	var tl = new TimelineMax({onComplete:function(){console.log("Fini");}});
 
-	tl.to(loader, 0.4, {y:"-100%",ease:Power1.easeIn});
+	// tl.to(loader, 0.4, {y:"-100%",ease:Power1.easeIn});
 
 	TweenMax.from(branding, 1.2, {y:"-100%",ease:Bounce.easeOut});
 

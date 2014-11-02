@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.png" />
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<title><?php wp_title(' | ', true, 'right'); ?></title>
@@ -43,16 +43,16 @@
 			</div>
 			
 			<nav>
+				<div id="search">
+					<a title="search"></a>
+					<?php get_search_form(); ?>
+				</div>
 				<ul class="head_social">
 					<li><a id="btn_twitter" href="http://twitter.com/patcorn_fr" title="Twitter PatCorn" target="_blank" ></a></li>
 					<li><a id="btn_fb" href="https://www.facebook.com/patcorn.fr" title="Facebook PatCorn" target="_blank" ></a></li>
 					<!--<li><a href title>Donation bitches</a></li>-->
 					<li><a id="btn_folio" href="http://corentinflach.fr/" title="Portfolio Corentin Flach" target="_blank" ></a></li>
 				</ul>
-				<div id="search">
-					<a title="search"></a>
-					<?php get_search_form(); ?>
-				</div>
 				<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 			</nav>
 		</header>
