@@ -27,173 +27,105 @@ heeere.bind({
   smoothLimit: 3
 });
 
-//$(document).ready(initialiser);
-
 console.log("Coucou !");
 
-//function initialiser() {
-	
-	window.onresize = function(){
-		setTimeout(function(){
-			heeere.bind({
-			  elems: '.hentry',
-			  viewportFactor: .15,
-			  smooth: true,
-			  smoothSpeed: 250,
-			  smoothLimit: 3
-			});
-		},300);
-	};
-	//Lien des Articles
-	/*if ( $('body').hasClass('home') || $('body').hasClass('search') || $('body').hasClass('category') || $('body').hasClass('archive') )
-	{
-		$('.post').click(function(e){
-			//e.preventDefault();
-			var link = $(this).find('.entry-title>a').attr('href');
-			window.location.href=link;
-		});
-	}*/
+window.onresize = function(){
+    setTimeout(function(){
+        heeere.bind({
+          elems: '.hentry',
+          viewportFactor: .15,
+          smooth: true,
+          smoothSpeed: 250,
+          smoothLimit: 3
+        });
+    },300);
+};
+//Lien des Articles
+/*if ( $('body').hasClass('home') || $('body').hasClass('search') || $('body').hasClass('category') || $('body').hasClass('archive') )
+{
+    $('.post').click(function(e){
+        //e.preventDefault();
+        var link = $(this).find('.entry-title>a').attr('href');
+        window.location.href=link;
+    });
+}*/
 
-	//Menu Déroulant
-	$('#menu-item-186').on('click', function (e) {
-		//alert("prout");
-		//e.preventDefault();
-		var toggled = $(this).data('toggled');
-		$(this).data('toggled', !toggled);
-		if (!toggled) {
-			if(($(window).width())<=705){
-				$('#menu-menu>li>ul').height(600);
-			}else if(($(window).width())<=1050){
-				$('#menu-menu>li>ul').height(450);
-			}else{
-				$('#menu-menu>li>ul').height(400);
-			}
-		}
-		else {
-			$('#menu-menu>li>ul').height(0);
-		}
-		setTimeout(function(){
-			heeere.bind({
-			  elems: '.hentry',
-			  viewportFactor: .15,
-			  smooth: true,
-			  smoothSpeed: 250,
-			  smoothLimit: 3
-			});
-		},500);
-	});
+//Menu Déroulant
+$('#menu-item-186').on('click', function (e) {
+    //alert("prout");
+    //e.preventDefault();
+    var toggled = $(this).data('toggled');
+    $(this).data('toggled', !toggled);
+    if (!toggled) {
+        if(($(window).width())<=705){
+            $('#menu-menu>li>ul').height(600);
+        }else if(($(window).width())<=1050){
+            $('#menu-menu>li>ul').height(450);
+        }else{
+            $('#menu-menu>li>ul').height(400);
+        }
+    }
+    else {
+        $('#menu-menu>li>ul').height(0);
+    }
+    setTimeout(function(){
+        heeere.bind({
+          elems: '.hentry',
+          viewportFactor: .15,
+          smooth: true,
+          smoothSpeed: 250,
+          smoothLimit: 3
+        });
+    },500);
+});
 
-	//CatIco everywhere
-	remplacerCatIco();
-	ajouterMenuIco($('#menu-menu>li>.sub-menu>li>.sub-menu>li>a'));
-	ajouterMenuIco($('.entry-title>strong'));
-	
-	//Random Description
-	randomDescription();
+//CatIco everywhere
+remplacerCatIco();
+ajouterMenuIco($('#menu-menu>li>.sub-menu>li>.sub-menu>li>a'));
+ajouterMenuIco($('.entry-title>strong'));
 
-	//Random Footer
-	randomFooter();
+//Random Description
+randomDescription();
 
-	//randomColor();
+//Random Footer
+randomFooter();
 
-	//Add Author search link
-	addAuthorLink();
+//randomColor();
 
-	//Up the comments if possible
-	/*
-	var aside_height = $('#content-single>aside').height();
-	var content_height = $('#content-single>.entry-content').height()
-	var diff = content_height - aside_height;
-	console.log(diff);
-	if( diff<0 )
-	{
-		$('#content-single>footer').css('margin-top',diff+'px');
-	}
-	*/
+//Add Author search link
+addAuthorLink();
 
-	//Durée Form change
-	if($('.duree').length!=0)
-		$('.duree').html( $('.duree').html().replace('.','m ')+'s' );
-	
-	//Suppr 'Comments'
-	$('.comments-link>a').each(function(){
-		var texte = $(this).html();
-		texte = texte.split("Comment");
-		//texte.join("");
-		texte = texte[0];
-		$(this).html(texte);
-	});
-	//$('.entry-footer .meta-sep').hide();
-	//$('.entry-footer .comments-link').hide();
-	
-	//Animations kikoo
-	/*
-	$('.type-post').each(function(i){
-		var it = $(this);
-		setTimeout(function(){it.addClass('animScaleOut');},50*i);
-	});*/
-	/*
-	$('.single-post .entry-content p, .page .entry-content p,.equipe p').each(function(i){
-		console.log(i);
-		var it = $(this);
-		setTimeout(function(){it.addClass('noMarginTop');},100*i);
-	});
-*/
-	//Animation début
-	//$(window).load(function(){
-	//})}
+//Durée Form change
+if($('.duree').length!=0)
+    $('.duree').html( $('.duree').html().replace('.','m ')+'s' );
 
-	$("#loader").addClass("loader_up");
+//Suppr 'Comments'
+$('.comments-link>a').each(function(){
+    var texte = $(this).html();
+    texte = texte.split("Comment");
+    //texte.join("");
+    texte = texte[0];
+    $(this).html(texte);
+});
 
-	//Les animations
-	var loader = document.getElementById("loader");
-	var branding = document.getElementById("branding");
-	var menu = document.querySelectorAll("#menu-menu>li");
-	var sociaux = document.querySelectorAll("#search, .head_social>li");
-	// var search = document.getElementById("search");
-	var articles = document.querySelectorAll(".hentry");
-	var titles = document.querySelectorAll(".section_title");
-
-	var tl = new TimelineMax({onComplete:function(){console.log("Fini");}});
-
-	// tl.to(loader, 0.4, {y:"-100%",ease:Power1.easeIn});
-
-	TweenMax.from(branding, 1.2, {y:"-100%",ease:Bounce.easeOut});
-
-	tl.staggerFrom(menu, 0.3, {y:"-100%",opacity:0}, 0.025);
-
-	TweenMax.staggerFrom(articles, 0.3, {opacity:0}, 0.075);
-
-	// tl.from(search, 0.3, {y:"-100%"});
-
-	tl.staggerFrom(sociaux, 0.3, {y:"-100%"}, 0.025);
-
-	tl.staggerFrom(titles, 0.3, {y:"100%",opacity:0}, 0.15);
-	 
-	// tl.pause();
-	// tl.play();
-	// tl.resume();
-	// tl.reverse();
-	// tl.play();
-
-	// TweenLite.from(branding, 0.5, {y:"-100%"});
-//}
 function addAuthorLink(){
-	//Fonction pour ajouter un lien <a> de recherche pour les auteurs.
-	var equipe = $('.search_author');
-	equipe.each(function() {
-		var auteur_linked = "";
-		var auteur = $(this).text().split("|");
-		console.log(auteur);
-		for(var i=0; i<auteur.length; i++)
-		{
-			auteur_linked += "<a href='http://patcorn.fr/?s="+auteur[i].replace(" ","+")+"' target='_blank'>"+auteur[i]+"</a>";
-			if((i+1)<auteur.length)
-				auteur_linked += " & "
-		}
-		$(this).html(auteur_linked);
-	});
+    
+    //Fonction pour ajouter un lien <a> de recherche pour les auteurs.
+    var equipe = $('.search_author');
+    equipe.each(function() {
+        var auteur_linked = "";
+        var auteur = $(this).text().split("|");
+        
+        for(var i=0; i<auteur.length; i++)
+        {
+            auteur_linked += "<a href='http://patcorn.fr/?s="+auteur[i].replace(" ","+")+"' target='_blank'>"+auteur[i]+"</a>";
+            if((i+1)<auteur.length)
+                auteur_linked += " & "
+        }
+        $(this).html(auteur_linked);
+    });
 }
+
 function randomDescription(){
 	var descriptions = [
 		"<strong>PatCorn</strong> référence les <strong>vidéos du net de qualité</strong> spécialement pour <strong>vous</strong> !",
@@ -653,4 +585,39 @@ function ajouterMenuIco(arg) {
 			$(this).addClass('realLetter');
 		}
 	});
+}
+
+var loader = document.getElementById("loader");
+
+//Animation début
+window.onload = function(){
+
+    //Les animations
+    var branding = document.getElementById("branding");
+    var menu = document.querySelectorAll("#menu-menu>li");
+    var sociaux = document.querySelectorAll(".head_social>li");
+    var search = document.getElementById("search");
+    var articles = document.querySelectorAll(".hentry");
+    var titles = document.querySelectorAll(".section_title");
+
+    var tl = new TimelineMax({onComplete:function(){ /*Fini*/ }});
+
+    TweenMax.to(loader, 0.3, {y:"-100%",ease:Power1.easeIn});
+    
+    TweenMax.from(branding, 0.9, {y:"-100%"});
+
+    tl.staggerFrom(articles, 0.3, {opacity:0}, 0.05);
+
+    tl.from(menu, 0.3, {y:"-50%",opacity:0});
+
+    tl.from(titles, 0.3, {y:"100%",opacity:0});
+    
+    tl.from(search, 0.3, {opacity:0});
+    
+    tl.staggerFrom(sociaux, 0.9, {opacity:0}, 0.075);
+};
+
+//Leaving the current page :/
+window.onbeforeunload = function(){
+    TweenMax.to(loader, 0.2, {y:"0%",ease:Power1.easeIn});
 }
