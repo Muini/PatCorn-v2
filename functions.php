@@ -13,6 +13,7 @@ if( !is_admin() ){
 function custom_loop( $query ) {
     if ( $query->is_home() && $query->is_main_query() ) {
         $query->set( 'post_type', array( 'post', 'articles', 'fiche-id' ) );
+//        $query->set('orderby', 'rand' );
     }
 }
 add_action( 'pre_get_posts', 'custom_loop' );

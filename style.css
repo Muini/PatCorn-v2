@@ -1114,6 +1114,7 @@ a.post-edit-link:hover{
     -webkit-transition: -webkit-transform .3s ease, opacity .3s ease;
 }
 .hentry.past {
+/*
     opacity: 0;
     transform-origin: 50% 100%;
     -ms-transform-origin: 50% 100%;
@@ -1121,6 +1122,7 @@ a.post-edit-link:hover{
     transform: perspective(1000px) rotateX(90deg) translateY(-10em) translateZ(0);
     -ms-transform: perspective(1000px) rotateX(90deg) translateY(-10em) translateZ(0);
     -webkit-transform: perspective(1000px) rotateX(90deg) translateY(-10em) translateZ(0);
+*/
 }
 .hentry.future {
     opacity: 0;
