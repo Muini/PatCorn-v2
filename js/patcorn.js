@@ -27,11 +27,11 @@ heeere.bind({
   smoothLimit: 3
 });
 
-$(document).ready(initialiser);
+//$(document).ready(initialiser);
 
 console.log("Coucou !");
 
-function initialiser() {
+//function initialiser() {
 	
 	window.onresize = function(){
 		setTimeout(function(){
@@ -177,7 +177,7 @@ function initialiser() {
 	// tl.play();
 
 	// TweenLite.from(branding, 0.5, {y:"-100%"});
-}
+//}
 function addAuthorLink(){
 	//Fonction pour ajouter un lien <a> de recherche pour les auteurs.
 	var equipe = $('.search_author');

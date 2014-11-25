@@ -8,6 +8,7 @@
 		//query_posts( array( 'post_type' => array( 'post', 'articles', 'fiche-id' ) ) );
 		global $wp_query;
 		$wp_query->set('post_type', array( 'post', 'articles', 'fiche-id' ) );
+        $wp_query->set('orderby', 'rand' );
 	?>
 	<?php while ( have_posts() ) : the_post() ?>
 	<?php get_template_part( 'entry' ); ?>

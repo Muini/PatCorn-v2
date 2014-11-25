@@ -44,7 +44,6 @@
 			
 			<nav>
 				<div id="search">
-					<a title="search"></a>
 					<?php get_search_form(); ?>
 				</div>
 				<ul class="head_social">

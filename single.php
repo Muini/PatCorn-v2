@@ -95,7 +95,9 @@
 			      'rel' => 'nofollow',
 			      'type' => 'post',
 			      'image' => array(50, 50),
-			      'message' => 'Aucun post similaire.'
+			      'message' => 'Aucun post similaire.',
+                  'post_status' => 'publish',
+                  'category__not_in' => array(54,55,56,70)
 			    )
 			  ) ?>
 			</ul>
