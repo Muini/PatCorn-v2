@@ -15,12 +15,12 @@
 			<h1 class="page-title section_title"><?php printf( __( 'Résultats de la recherche pour : %s', 'blankslate' ), '<span>' . get_search_query()  . '</span>' ); ?></h1>
 		</header>
 		<div id="post-0" class="post no-results not-found">
-		<span class="icon-wondering"></span>
-		<h2 class="entry-title"><?php _e( 'Rien n\'a été trouvé !', 'blankslate' ) ?></h2>
-		<div class="entry-content">
-		<p><?php _e( 'Désolé, rien ne correspond a votre recherche. Essayez d\'autres termes.', 'blankslate' ); ?></p>
-		<?php get_search_form(); ?>
-		</div>
+            <span class="icon-wondering"></span>
+            <h2 class="entry-title"><?php _e( 'Rien n\'a été trouvé !', 'blankslate' ) ?></h2>
+            <div class="entry-content">
+            <p><?php _e( 'Désolé, rien ne correspond a votre recherche. Essayez d\'autres termes.', 'blankslate' ); ?></p>
+            <?php get_search_form(); ?>
+            </div>
 		</div>
 	<?php endif; ?>
 </section>
